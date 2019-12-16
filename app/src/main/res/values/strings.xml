@@ -2,4 +2,7 @@
     <string name="app_name">Restoran</string>
     <string name="title_menu">Menu</string>
     <string name="title_list">List Pemesanan</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
