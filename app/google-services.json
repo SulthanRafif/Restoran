@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "481338987822",
+    "firebase_url": "https://restoran-3a1f8.firebaseio.com",
+    "project_id": "restoran-3a1f8",
+    "storage_bucket": "restoran-3a1f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481338987822:android:ada86107479befae0c96bf",
+        "android_client_info": {
+          "package_name": "com.example.restoran"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "481338987822-fvdm60hd0pjs826rgkumo653g17edi01.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.restoran",
+            "certificate_hash": "051b2cbc88a027c2ddde07adadef8e2cc4191420"
+          }
+        },
+        {
+          "client_id": "481338987822-blvtvojrj0h0mkasileq502apgofhmdj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdOM21k2qALfEO31KZ4nTaRx-0soe52Hs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "481338987822-blvtvojrj0h0mkasileq502apgofhmdj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
