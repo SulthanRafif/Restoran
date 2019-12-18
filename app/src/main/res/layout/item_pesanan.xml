@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:elevation="0dp"
-    android:id="@+id/cardMakanan"
+    android:id="@+id/cardPesanan"
     >
 
 
@@ -24,7 +24,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_nama"
+                android:id="@+id/tv_nama_pesanan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Makanan"
@@ -33,17 +33,27 @@
                 />
 
             <TextView
-                android:id="@+id/tv_harga"
+                android:id="@+id/tv_harga_pesanan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Harga"
                 android:fontFamily="@font/roboto"
                 android:textColor="@color/backgroundApp"
                 />
+
+            <TextView
+                android:id="@+id/tv_jumlah_pesanan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jumlah"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/backgroundApp"
+                />
+
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/iv_gambar"
+            android:id="@+id/iv_gambar_pesanan"
             android:layout_width="70dp"
             android:layout_height="60dp"
             android:layout_weight="0.2"

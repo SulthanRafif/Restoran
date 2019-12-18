@@ -1,6 +1,7 @@
 package com.example.restoran.ui.home;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.example.restoran.Data.Makanan;
 import com.example.restoran.R;
+import com.example.restoran.TambahData.TambahDataActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -52,9 +54,9 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         myFragment = inflater.inflate(R.layout.fragment_home,container,false);
-//        setTitle("Makanan");
+
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Makanan dan minuman");
 
@@ -62,12 +64,6 @@ public class HomeFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         layoutManager = new GridLayoutManager(container.getContext(), 1);
         recyclerView.setLayoutManager(layoutManager);
-//        linearLayoutManager = new LinearLayoutManager(this);
-//        linearLayoutManager.setReverseLayout(true);
-//        linearLayoutManager.setStackFromEnd(true);
-//        recyclerView.setLayoutManager(linearLayoutManager);
-
-
 
         Query query = mDatabase;
 
@@ -77,9 +73,30 @@ public class HomeFragment extends Fragment {
 
         mAdapter = new FirebaseRecyclerAdapter<Makanan, MakananViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull MakananViewHolder makananViewHolder, int i, @NonNull Makanan makanan) {
+            protected void onBindViewHolder(@NonNull MakananViewHolder makananViewHolder, int i, @NonNull final Makanan makanan) {
                 makananViewHolder.bindToMakanan(makanan);
                 Glide.with(HomeFragment.this).load(makanan.getGambar_makanan()).into(makananViewHolder.ivGambar);
+
+
+                makananViewHolder.cv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Bundle extras = new Bundle();
+
+                        Intent intent = new Intent(view.getContext(), TambahDataActivity.class);
+
+                        extras.putInt("dummy", makanan.getDummy());
+
+                        extras.putString("nama_makanan", makanan.getNama_makanan());
+                        extras.putInt("harga_makanan", makanan.getHarga_makanan());
+                        extras.putString("gambar_makanan", makanan.getGambar_makanan());
+
+                        intent.putExtras(extras);
+
+                        startActivity(intent);
+                    }
+                });
+
             }
 
             @NonNull
@@ -110,4 +127,6 @@ public class HomeFragment extends Fragment {
             mAdapter.stopListening();
         }
     }
+
+
 }

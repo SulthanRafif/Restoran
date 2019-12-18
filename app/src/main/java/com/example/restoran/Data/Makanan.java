@@ -11,6 +11,16 @@ public class Makanan {
     public int harga_makanan;
     public String gambar_makanan;
 
+    public int dummy;
+
+    public int getDummy() {
+
+        dummy = 0;
+
+        return dummy;
+    }
+
+
 
     public Makanan(){
 

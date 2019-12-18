@@ -1,5 +1,7 @@
 package com.example.restoran.ui.home;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -7,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.restoran.Data.Makanan;
@@ -15,11 +18,11 @@ import com.example.restoran.TambahData.TambahDataActivity;
 
 public class MakananViewHolder extends RecyclerView.ViewHolder {
 
-    private AdapterView.OnItemClickListener listener;
 
     public ImageView ivGambar;
     public TextView tvNama;
     public TextView tvHarga;
+    public CardView cv;
 
 
     public MakananViewHolder(@NonNull final View itemView) {
@@ -28,25 +31,15 @@ public class MakananViewHolder extends RecyclerView.ViewHolder {
         tvHarga = itemView.findViewById(R.id.tv_harga);
         ivGambar = itemView.findViewById(R.id.iv_gambar);
 
-        itemView.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                int position = getAdapterPosition();
-
-                if (position != RecyclerView.NO_POSITION && listener != null) {
-                    itemView.getContext().startActivity(new Intent(itemView.getContext(), TambahDataActivity.class));
-                }
-
-            }
-        });
-
+        cv = itemView.findViewById(R.id.cardMakanan);
     }
 
 
     public void bindToMakanan(Makanan makanan) {
 
+        String harga = "IDR " + makanan.harga_makanan;
+
         tvNama.setText(makanan.nama_makanan);
-        tvHarga.setText("IDR " + String.valueOf(makanan.harga_makanan));
+        tvHarga.setText(harga);
     }
 }
